@@ -23,7 +23,7 @@ $(PROG): %: %.o $(OBJECTS)
 # N/A
 
 # additional header dependencies for prog
-ioseqw.o: setup.h
+ioseqw.o: setup.h record.h
 
 .PHONY: clean
 clean:
