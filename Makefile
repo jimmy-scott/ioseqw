@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -pedantic -Wall -std=c99 -O2 -D_GNU_SOURCE
 
 PROG = ioseqw
-OBJECTS = setup.o
+OBJECTS = setup.o record.o
 COMMONS = common.h
 
 all: $(PROG)
