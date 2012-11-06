@@ -89,7 +89,9 @@ main(int argc, char **argv)
 		
 		/* (full)fsync if requested */
 		if (config.opt_fsync) fsync(fd);
+#ifdef __APPLE__
 		if (config.opt_ffsync) fcntl(fd, F_FULLFSYNC);
+#endif /* __APPLE__ */
 	}
 	
 	/* cleanup */

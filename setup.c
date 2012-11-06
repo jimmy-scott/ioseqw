@@ -196,8 +196,10 @@ parse_args(struct config_t *config, int argc, char **argv)
 				config->opt_dsync = 1;
 			else if (strcmp(optarg, "fsync") == 0)
 				config->opt_fsync = 1;
+#ifdef __APPLE__
 			else if (strcmp(optarg, "ffsync") == 0)
 				config->opt_ffsync = 1;
+#endif /* __APPLE__ */
 			else {
 				PRWARN("invalid sync type: %s", optarg);
 				return -1;
