@@ -72,7 +72,14 @@ usage(FILE *stream)
 	"  -f <filename>      Name of the file to write to\n"
 	"  -t <sync-type>     Sync option to use for writing\n"
 	"  -h                 Show this help\n"
-	"  -v                 Show version\n"
+	"  -v                 Show version\n\n"
+	"Sync types:\n"
+	"  -t sync            Use the O_SYNC open option\n"
+	"  -t dsync           Use the O_DSYNC open option\n"
+	"  -t fsync           Use the fsync() system call\n"
+#ifdef __APPLE__
+	"  -t ffsync          Use the F_FULLSYNC file control\n"
+#endif /* __APPLE__ */
 	, stream);
 }
 
