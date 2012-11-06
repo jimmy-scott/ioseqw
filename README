@@ -1,0 +1,28 @@
+ioseqw - sequential write using various (f)sync options
+=======================================================
+
+Based on something I wrote to test synchronous write performance.
+
+The record size and record count parameters are mandatory.
+
+Examples
+--------
+
+Write 10240 records of 4096 bytes, to the default file 'ioseqw.out':
+
+    ./ioseqw -s 4096 -c 10240
+
+Write it to the file 'wazaa' instead:
+
+    ./ioseqw -s 4096 -c 10240 -f wazaa
+
+Write it using multiple sync options:
+
+    ./ioseqw -s 4096 -c 10240 -t sync -t dsync -t fsync
+
+Surprised how fast that completes on OSX? You'll want this on OSX:
+
+    ./ioseqw -s 4096 -c 10240 -t ffsync
+
+Which will use the F_FULLFSYNC file control (only available on OSX).
+
